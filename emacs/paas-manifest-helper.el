@@ -24,11 +24,13 @@
   )
 
 ;;;###autoload
-(defun paas-manifest-helper-open-at-point()
+(defun paas-manifest-helper-open-at-point(&optional other-window)
   (interactive)
   (let* ((value (paas-manifest-helper-get-value-at-point)))
     (if (file-exists-p value)
-        (find-file value)
+        (if other-window
+            (find-file-other-window value)
+          (find-file value))
       (message "file not found: %s" value)))
   )
 
