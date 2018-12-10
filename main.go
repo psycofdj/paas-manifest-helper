@@ -54,6 +54,7 @@ func main() {
 	manifest := Manifest{
 		Consts: map[string]interface{}{
 			"root":          root,
+			"common":        path.Join(root, "common"),
 			"product":       product,
 			"product_name":  product_name,
 			"instance":      instance,
