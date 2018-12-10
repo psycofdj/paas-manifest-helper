@@ -16,6 +16,14 @@
 
 
 ;;;###autoload
+(defun paas-manifest-helper-is-manifest()
+  (save-excursion
+    (save-match-data
+      (goto-char (point-min))
+      (search-forward "const:" nil t)))
+  )
+
+;;;###autoload
 (defun paas-manifest-helper-open-at-point()
   (interactive)
   (let* ((value (paas-manifest-helper-get-value-at-point)))
